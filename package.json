@@ -1,14 +1,22 @@
 {
-  "name": "Consumindo-API",
+  "name": "consumindo-api",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "start": "nodemon server.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KaduHod/Consuming-API.git"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KaduHod/Consuming-API/issues"
+  },
+  "homepage": "https://github.com/KaduHod/Consuming-API#readme",
   "dependencies": {
     "axios": "^0.21.1",
     "cors": "^2.8.5",

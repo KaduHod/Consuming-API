@@ -1,14 +1,24 @@
 const cors = require('cors')
-const express = require('express') //chamo o express
+const express = require('express')
 const app = express()
+const axios = require('axios')
 
 app.use(cors())
 
-app.get('/', (req, res)=>{
-    return res.json([
-        {usuario: 'Carlos Programador'},
-        {usuario: 'Fulano beltrano'}
-    ])
+app.get('/',async (req, res)=>{
+    try {
+        // response é a resposta o axios mas eu tiro o data de dentro do response
+        const { data } = await axios('https://jsonplaceholder.typicode.com/users')
+
+        return res.json(data)
+    } catch (error) {
+        console.error(error)
+    }
+    
 })
 
-app.listen('7071')
+var porta = '7071'
+
+app.listen(porta, ()=>{
+    console.log(`Servidor rodando em - http://localhost:${porta}:`)
+})

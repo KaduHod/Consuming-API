@@ -1,27 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teste API</title>
-</head>
 <body>
-    <script>
-        async function getContent(){
-            try {
-                const response = await fetch('http://localhost:7071/')
-                const data = await response.json
-                console.log(data)
-            } catch (error) {
-                console.log('errou')
-                console.error(error)
-            }
+    <main>
+        
+    </main>
+</body>
+<script>
+    async function getContent(){
+        try {
+            const response = await fetch('http://localhost:7071/') 
+            //console.log(response)
+            const data = await response.json()
+            showUser(data)
+        } catch (error) {
+            console.error(error)
         }
         
-        getContent()
+    }
 
-
-    </script>
-</body>
-</html>
+    function showUser(users){
+        console.log(users)
+        let output = ''
+        for(user of users){
+            output += `<li> ${user.name} </li>`
+        }
+        document.querySelector('main').innerHTML = output
+    }
+    
+    getContent()
+</script>
